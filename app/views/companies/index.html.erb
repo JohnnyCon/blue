@@ -1,0 +1,9 @@
+<h1>Companies#index</h1>
+
+<ul>
+<% @companies.each do |company| %>
+  <li>Name: <%= company.name %></li>
+<% end %>
+</ul>
+
+<%= link_to "Add new", new_company_path %>
