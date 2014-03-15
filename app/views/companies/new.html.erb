@@ -1,23 +1,7 @@
 <h2>Add a new company</h2>
 
-<%= form_for(@company) do |f| %>
+<%= render 'form' %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
+<hr>
 
-  <%= f.label :industry %>
-  <%= f.text_field :industry %>
-  <br>
-
-  <%= f.label :employee_count %>
-  <%= f.text_field :employee_count %>
-  <br>
-
-  <%= f.label :join_date %>
-  <%= f.date_select :join_date %>
-  <br>
-
-  <%= f.submit %>
-
-<% end %>
+<%= render 'company_list' %>

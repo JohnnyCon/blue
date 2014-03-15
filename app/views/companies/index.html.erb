@@ -1,9 +1,8 @@
-<h1>Companies#index</h1>
+<h1>Blue Companies</h1>
 
-<ul>
-<% @companies.each do |company| %>
-  <li>Name: <%= company.name %></li>
-<% end %>
-</ul>
+<%= render 'company_list' %>
+
+
+<br>
 
 <%= link_to "Add new", new_company_path %>
