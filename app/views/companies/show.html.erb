@@ -1,8 +1,27 @@
 This is the show page
 
+<h3>Company</h3>
+
 <ul>
   <li>Name: <%= @company.name %></li>
   <li>Industry: <%= @company.industry %></li>
   <li>Employees: <%= @company.employee_count %></li>
   <li>Joined: <%= @company.join_date %></li>
 </ul>
+
+<hr>
+<h3>Members</h3>
+
+<ul>
+<% @company.members.each do |member| %>
+  <li>
+    name: <%= member.name %> -
+    <%= link_to "show", member_path(member) %>
+    <%= link_to "edit", edit_member_path(member) %>
+    <%= link_to "delete", member, method: :delete %>
+  </li>
+<% end %>
+</ul>
+
+<br>
+<%= link_to "add new member", new_member_path() %>

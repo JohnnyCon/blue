@@ -1,0 +1,26 @@
+<h1>Member</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Title</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= link_to member.name, member_path(member) %></td>
+        <td><%= member.title %></td>
+        <td><%= link_to "edit", edit_member_url(member) %></td>
+        <td><%= link_to "delete", member, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<%= link_to "add new member", new_member_path() %>

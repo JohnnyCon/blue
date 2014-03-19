@@ -1,0 +1,16 @@
+<%= form_for(@member) do |f| %>
+  <%= f.label :company_id %>
+  <%= f.text_field :company_id %>
+  <br>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>
