@@ -16,12 +16,12 @@ This is the show page
 <% @company.members.each do |member| %>
   <li>
     name: <%= member.name %> -
-    <%= link_to "show", member_path(member) %>
-    <%= link_to "edit", edit_member_path(member) %>
-    <%= link_to "delete", member, method: :delete %>
+    <%= link_to "show", company_member_path(@company, member) %>
+    <%= link_to "edit", edit_company_member_path(@company, member) %>
+    <%= link_to "delete", company_member_path(@company, member), method: :delete %>
   </li>
 <% end %>
 </ul>
 
 <br>
-<%= link_to "add new member", new_member_path() %>
+<%= link_to "add new member", new_company_member_path(@company) %>

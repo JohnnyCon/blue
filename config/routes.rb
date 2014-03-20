@@ -1,6 +1,10 @@
 Blue::Application.routes.draw do
 
-  resources :companies
-  resources :members
+  root "companies#index"
+
+  resources :companies do
+    resources :members
+  end
+
 
 end
