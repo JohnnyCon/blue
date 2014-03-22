@@ -1,3 +1,10 @@
+<ul>
+<% @company.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
+
 <%= form_for(@company) do |f| %>
 
   <%= f.label :name %>

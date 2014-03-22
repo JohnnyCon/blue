@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+
+  before_action :set_company, only: [:edit, :update, :destroy, :show]
+
   def index
     @companies = Company.all
   end
@@ -8,31 +11,41 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    Company.create(company_params)
+    @company = Company.new(company_params)
 
-    redirect_to :companies
+    if @company.save
+      flash[:success] = "Saved company successfully"
+      redirect_to :companies
+    else
+      flash[:error] = "Failed to save company"
+      render 'new'
+    end
   end
 
   def edit
-    @company = Company.find(params[:id])
+
   end
 
   def update
-    @company = Company.find(params[:id])
-    @company.update(company_params)
-
-    redirect_to :companies
+    if @company.update(company_params)
+      redirect_to :companies
+    else
+      render 'edit'
+    end
   end
 
   def show
-    @company = Company.find(params[:id])
+
   end
 
   def destroy
-    @company = Company.find(params[:id])
     @company.destroy
 
     redirect_to :companies
+  end
+
+  def set_company
+    @company = Company.find(params[:id])
   end
 
   def company_params

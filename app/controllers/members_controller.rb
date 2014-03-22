@@ -10,9 +10,15 @@ class MembersController < ApplicationController
   end
 
   def create
-    member = Member.create(member_params)
+    @member = Member.new(member_params)
+    @company = nil
 
-    redirect_to company_path(member.company_id)
+    if @member.save
+      redirect_to company_path(@member.company_id)
+    else
+      @company = Company.find(@member.company_id)
+      render 'new'
+    end
   end
 
   def edit
@@ -21,10 +27,16 @@ class MembersController < ApplicationController
   end
 
   def update
-    member = Member.find(params[:id])
-    member.update(member_params)
+    @member = Member.find(params[:id])
+    @company = nil
 
-    redirect_to company_path(member.company_id)
+    if @member.update(member_params)
+      redirect_to company_path(@member.company_id)
+    else
+      @company = Company.find(@member.company_id)
+      render 'edit'
+    end
+
   end
 
   def destroy

@@ -1,0 +1,22 @@
+.field_with_errors {
+  color: red;
+}
+
+.alert {
+  border-style: solid;
+  border-color: gray;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.alert-success {
+  color: green;
+}
+
+.alert-error {
+  color: red;
+}
+
+.alert-notice {
+  color: black;
+}
