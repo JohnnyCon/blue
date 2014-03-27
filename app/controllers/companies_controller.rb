@@ -17,7 +17,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "Saved company successfully"
       redirect_to :companies
     else
-      flash[:error] = "Failed to save company"
+      flash[:alert] = "Failed to save company"
       render 'new'
     end
   end

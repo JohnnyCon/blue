@@ -18,8 +18,8 @@
         <td><%= company.industry %></td>
         <td><%= company.employee_count %></td>
         <td><%= company.join_date %></td>
-        <td><%= link_to "edit", edit_company_url(company) %></td>
-        <td><%= link_to "delete", company, method: :delete %></td>
+        <td><%= link_to "edit", edit_company_url(company), class: "button tiny round" %></td>
+        <td><%= link_to "delete", company, method: :delete, class: "button tiny alert round" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to "Add new", new_company_path %>
+<%= link_to "Add new", new_company_path, class: "button radius" %>
