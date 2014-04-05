@@ -6,5 +6,7 @@ Blue::Application.routes.draw do
     resources :members
   end
 
+  resources :events
+
 
 end

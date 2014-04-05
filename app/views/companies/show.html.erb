@@ -12,16 +12,31 @@ This is the show page
 <hr>
 <h3>Members</h3>
 
-<ul>
-<% @company.members.each do |member| %>
-  <li>
-    name: <%= member.name %> -
-    <%= link_to "show", company_member_path(@company, member) %>
-    <%= link_to "edit", edit_company_member_path(@company, member) %>
-    <%= link_to "delete", company_member_path(@company, member), method: :delete %>
-  </li>
-<% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Title</td>
+      <td>Email</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @company.members.each do |member| %>
+      <tr>
+        <td><%= link_to member.name, company_member_path(@company, member) %></td>
+        <td><%= member.title %></td>
+        <td><%= member.email %></td>
+        <td><%= link_to "edit", edit_company_member_path(@company, member) , class: "button tiny round" %></td>
+        <td><%= link_to "delete", company_member_path(@company, member), method: :delete, class: "button tiny alert round" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 
 <br>
-<%= link_to "add new member", new_company_member_path(@company) %>
+
+<%= link_to "Add new", new_company_member_path(@company), class: "button radius" %>
