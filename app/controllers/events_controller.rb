@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @capacity = Event.sum(:capacity)
   end
 
   def show
