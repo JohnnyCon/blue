@@ -12,7 +12,7 @@
   <br>
 
   <%= f.label :industry %>
-  <%= f.text_field :industry %>
+  <%= f.select :industry, options_for_select([['Choose...', ''], 'finance', 'tech']) %>
   <br>
 
   <%= f.label :employee_count %>
@@ -20,8 +20,9 @@
   <br>
 
   <%= f.label :join_date %>
-  <%= f.date_select :join_date %>
+  <%= f.date_field :join_date %>
   <br>
+
 
   <%= f.submit class: "button radius" %>
 

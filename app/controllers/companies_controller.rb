@@ -23,7 +23,6 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -35,7 +34,6 @@ class CompaniesController < ApplicationController
   end
 
   def show
-
   end
 
   def destroy
