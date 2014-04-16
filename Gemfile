@@ -7,6 +7,7 @@ gem 'pg'
 
 gem 'foundation-rails'
 gem 'forgery'
+gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_admin!, except: [:index, :show]
   before_action :set_event, only: [:edit, :update, :destroy, :show]
 
   def index
@@ -22,7 +23,7 @@ class EventsController < ApplicationController
       redirect_to :events
     else
       flash[:alert] = "Failed to save event"
-      render 'new'
+      render :new
     end
   end
 
@@ -33,7 +34,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to :events
     else
-      render 'edit'
+      render :edit
     end
   end
 

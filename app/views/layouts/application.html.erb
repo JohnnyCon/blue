@@ -26,6 +26,18 @@
         <li><%= link_to "companies", companies_path %></li>
         <li><%= link_to "events", events_path %></li>
       </ul>
+
+      <ul class="right">
+        <li>
+          <% if user_signed_in? %>
+            Hello, <%= current_user.email %> <%= link_to "sign out",
+          destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "sign in", new_user_session_path %>
+          <% end %>
+        </li>
+      </ul>
+
     </section>
   </nav>
 </div>

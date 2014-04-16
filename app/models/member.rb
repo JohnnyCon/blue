@@ -4,9 +4,7 @@ class Member < ActiveRecord::Base
   validates :name, presence: true
   validates :title, presence: true
   validates :title, length: { in: 1..20 }
-  
-  validates :email, presence: true
-  validates :email, format: { with: /@/ }
-  validates :email, uniqueness: true
+
+  validates :email, presence: true, uniqueness: true, format: { with: /@/ }
 
 end

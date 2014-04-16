@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_company, only: [:edit, :update, :destroy, :show]
+
 
   def index
     @companies = Company.all
@@ -18,7 +19,7 @@ class CompaniesController < ApplicationController
       redirect_to :companies
     else
       flash[:alert] = "Failed to save company"
-      render 'new'
+      render :new
     end
   end
 
@@ -29,7 +30,7 @@ class CompaniesController < ApplicationController
     if @company.update(company_params)
       redirect_to :companies
     else
-      render 'edit'
+      render :edit
     end
   end
 
