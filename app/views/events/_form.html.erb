@@ -12,6 +12,7 @@
   <br>
 
   <%= f.label :description %>
+<<<<<<< Updated upstream
   <%= f.text_area :description %>
   <br>
 
@@ -25,6 +26,20 @@
 
   <%= f.label :end_at %>
   <%= f.date_field :end_at %>
+=======
+  <%= f.text_field :description %>
+  <br>
+
+  <%= f.label :start_at %>
+  <%= f.date_select :start_at %>
+  <br>
+
+  <%= f.label :end_at %>
+  <%= f.date_select :end_at %>
+
+  <%= f.label :capacity %>
+  <%= f.text_field :capacity %>
+>>>>>>> Stashed changes
   <br>
 
   <%= f.submit class: "button radius" %>
