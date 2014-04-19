@@ -27,16 +27,28 @@
         <li><%= link_to "events", events_path %></li>
       </ul>
 
-      <ul class="right">
-        <li>
-          <% if user_signed_in? %>
-            Hello, <%= current_user.email %> <%= link_to "sign out",
-          destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to "sign in", new_user_session_path %>
-          <% end %>
-        </li>
-      </ul>
+    <ul class="right">
+      <% if user_signed_in? %>
+      <li><a href="#">Hi, <%= current_user.email %>!</a></li>
+      <li class="has-dropdown">
+        <a href="#">Account</a>
+        <ul class="dropdown">
+          <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </li>
+
+      <% else %>
+      <li class="has-dropdown">
+        <a href="#">Account</a>
+        <ul class="dropdown">
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Signin w/github", user_omniauth_authorize_path(:github) %></li>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        </ul>
+      <% end %>
+      </li>
+    </ul>
 
     </section>
   </nav>
