@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
-gem 'pg'
+gem 'sqlite3'
 
 gem 'foundation-rails'
 gem 'forgery'

@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140417004700) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "companies", force: true do |t|
     t.string   "name"
     t.string   "industry"
@@ -36,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140417004700) do
     t.integer  "capacity"
   end
 
-  add_index "events", ["member_id"], name: "index_events_on_member_id", using: :btree
+  add_index "events", ["member_id"], name: "index_events_on_member_id"
 
   create_table "members", force: true do |t|
     t.integer  "company_id"
@@ -47,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140417004700) do
     t.string   "email"
   end
 
-  add_index "members", ["company_id"], name: "index_members_on_company_id", using: :btree
+  add_index "members", ["company_id"], name: "index_members_on_company_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",       null: false
@@ -71,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140417004700) do
     t.string   "provider"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
